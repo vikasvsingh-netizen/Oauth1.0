@@ -44,10 +44,10 @@ namespace Oauth_1a_Demo_Caller
                     Url = "https://localhost:7028/api/test/get",
                     Method = HttpMethod.Get,
                     QueryParams = new Dictionary<string, string>
-        {
-            { "name", "Vikas" },
-            { "age", "21" }
-        }
+                    {
+                        { "name", "Vikas" },
+                        { "age", "21" }
+                    }
                 };
 
                 var stopwatch = Stopwatch.StartNew();

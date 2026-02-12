@@ -31,6 +31,12 @@ namespace Oauth_1a_Demo.Services
 
             var oauthParams = ParseOAuthHeader(authHeader);
 
+            var timestamp = long.Parse(oauthParams["oauth_timestamp"]);
+            var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            var allowedWindow = 300;
+            if (Math.Abs(now - timestamp) > allowedWindow)
+                return false;
+
             var consumerKey = oauthParams["oauth_consumer_key"];
             var accessToken = oauthParams["oauth_token"];
 
